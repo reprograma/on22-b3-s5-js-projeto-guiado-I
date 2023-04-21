@@ -2,9 +2,19 @@
 
 ## Nome do Exercicio
 
-- Explicação do exercício: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci.
-Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. 
+- Crie um programa que armazene informações de alunos de uma escola em um array de objetos. Cada objeto deve ter as seguintes propriedades: nome, idade, notas (um array com as notas das provas do aluno).
+
+- Utilize uma estrutura de repetição para percorrer o array de alunos e calcular a média de cada um deles.
+
+- Utilize uma estrutura condicional para verificar se a média de cada aluno é maior ou igual a 7. Se for, adicione uma propriedade chamada "aprovado" com o valor "true" ao objeto do aluno. Caso contrário, adicione a propriedade "aprovado" com o valor "false".
+
+- Crie uma classe chamada "Turma" que possua uma propriedade "alunos" que armazene o array de objetos de alunos criado anteriormente.
+
+- Na classe "Turma", crie um método chamado "calcularMediaTurma" que percorra o array de alunos e calcule a média da turma.
+
+- Na classe "Turma", crie um método chamado "verificarAprovacao" que percorra o array de alunos e verifique se todos foram aprovados ou não. Se todos os alunos foram aprovados, retorne "Todos os alunos foram aprovados". Caso contrário, retorne "Alguns alunos foram reprovados".
+
+**Teste o programa criando um objeto da classe "Turma", adicionando alguns alunos e verificando a média da turma e a aprovação dos alunos.**
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!

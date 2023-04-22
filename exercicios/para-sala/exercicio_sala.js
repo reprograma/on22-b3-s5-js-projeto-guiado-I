@@ -10,7 +10,9 @@
 [OK] Na classe "Turma", crie um método chamado "calcularMediaTurma" que percorra o array de alunos e calcule a média da turma.
 
 [OK] Na classe "Turma", crie um método chamado "verificarAprovacao" que percorra o array de alunos e verifique se todos foram aprovados ou não. Se todos os alunos foram aprovados, retorne "Todos os alunos foram aprovados". Caso contrário, retorne "Alguns alunos foram reprovados".
- */
+[OK] Na classe turma, crie um método mudarNome que receba um nome novo e mude o nome da turma para esse nome novo
+*/
+
 class Aluno {
   constructor(nome, idade, notas) {
     this.nome = nome;
@@ -29,8 +31,8 @@ class Aluno {
 
     return mediaAlunoArredondada;
   }
-  
-  exibirMediaAluno() {
+
+  exibirMedia() {
     console.log(this.calcularMedia());
   }
 }
@@ -43,7 +45,8 @@ const alunos = [
 ];
 
 class Turma {
-  constructor(alunos) {
+  constructor(alunos, nome) {
+    this.nome = nome
     this.alunos = alunos;
   }
 
@@ -93,33 +96,22 @@ class Turma {
   inserirAluno(aluno) {
     this.alunos.push(aluno);
   }
-}
 
-class Escola {
-  constructor(nome) {
-    this.nome = nome;
-  }
-
-  adicionarTurma(turma) {
-    this.turma = turma;
+  mudarNome(novoNome){
+    return this.nome = novoNome
   }
 }
 
-const escola = new Escola('Escola Reprograma');
 
-escola.adicionarTurma(
-    new Turma([
-        new Aluno('Nome Aluno1', 19, [8, 7, 5, 3])]
-    )
-);
-console.log(escola.turma)
+// Trabalhando com a classe TURMA
+const turma = new Turma(alunos,"Fundamental 3");
+console.log(turma)
+// Criando novo Aluno
 const novoAluno = new Aluno('Manuelly', 25, [8, 6, 4.5, 3]);
-
-console.log(novoAluno.calcularMedia());
-
-const turma = new Turma(alunos);
-
+// Adicionando o novo aluno para a turma
 turma.inserirAluno(novoAluno);
-console.log(turma.exibirMediaTurma());
-console.log(turma.adicionarStatusAprovacao());
-console.log(novoAluno.exibirMediaAluno());
+
+// Os métodos das classes que podem ser utilizados:
+console.log(turma.exibirMediaTurma())
+turma.mudarNome("Médio 2")
+console.log(turma)

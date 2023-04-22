@@ -17,7 +17,8 @@ Antes de começar, vamos organizar nosso setup.
 ---
 # Projeto guiado - Algoritmo e lógica de programação
 
- Chegou a hora de colocar em prática o que foi aprendido nas últimas semanas: Funções, Loosp, arrays, objetos e classes! Animadas?
+ Chegou a hora de colocar em prática o que foi aprendido nas últimas semanas: Funções, Loops, arrays, objetos e classes! Vamos lá galera, mulheres!
+
 
 ***
 ### Exercícios 

@@ -12,87 +12,114 @@
 [OK] Na classe "Turma", crie um método chamado "verificarAprovacao" que percorra o array de alunos e verifique se todos foram aprovados ou não. Se todos os alunos foram aprovados, retorne "Todos os alunos foram aprovados". Caso contrário, retorne "Alguns alunos foram reprovados".
  */
 class Aluno {
-    constructor(nome, idade, notas){
-        this.nome = nome
-        this.idade = idade
-        this.notas = notas
-    }
+  constructor(nome, idade, notas) {
+    this.nome = nome;
+    this.idade = idade;
+    this.notas = notas;
+  }
 
-    calcularMedia(){
-        const somaNotasAluno = this.notas.reduce((acumulador, valorAtual)=> acumulador + valorAtual)
+  calcularMedia() {
+    const somaNotasAluno = this.notas.reduce(
+      (acumulador, valorAtual) => acumulador + valorAtual
+    );
 
-        const mediaAlunoArredondada =  (somaNotasAluno / this.notas.length).toFixed(1)
-        
-        return mediaAlunoArredondada
-    }
+    const mediaAlunoArredondada = (somaNotasAluno / this.notas.length).toFixed(
+      1
+    );
+
+    return mediaAlunoArredondada;
+  }
+  
+  exibirMediaAluno() {
+    console.log(this.calcularMedia());
+  }
 }
 
 const alunos = [
-    new Aluno("Luana",20,[8,7,5.4,10]),
-    new Aluno("Joaozinho",22,[6,4,8.4,8]),
-    new Aluno("Mariazinha",19,[9,10,8.4,9]),
-    new Aluno("Dona Barata",20,[7,4,9,7.7])
-]
+  new Aluno('Luana', 20, [8, 7, 5.4, 10]),
+  new Aluno('Joaozinho', 22, [6, 4, 8.4, 8]),
+  new Aluno('Mariazinha', 19, [9, 10, 8.4, 9]),
+  new Aluno('Dona Barata', 20, [7, 4, 9, 7.7]),
+];
 
 class Turma {
-    constructor(alunos){
-        this.alunos = alunos
+  constructor(alunos) {
+    this.alunos = alunos;
+  }
+
+  exibirMediaTurma() {
+    // Alternativa para não usar o reduce:
+    /**
+     * let soma = 0
+     * for(nota of arrayDeNotas){
+     *    soma += nota
+     * }
+     */
+    const arrayDeNotas = this.alunos.map((aluno) => aluno.notas).flat();
+
+    const somaDasNotas = arrayDeNotas.reduce(
+      (acumulador, valorAtual) => acumulador + valorAtual
+    );
+
+    const media = (somaDasNotas / arrayDeNotas.length).toFixed(1);
+
+    console.log(media);
+  }
+
+  adicionarStatusAprovacao() {
+    const alunosPorAprovacao = this.alunos.map((aluno) => {
+      const mediaAluno = aluno.calcularMedia();
+
+      aluno.aprovado = mediaAluno < 7 ? false : true;
+
+      return aluno;
+    });
+
+    return alunosPorAprovacao;
+  }
+
+  verificaAprovacao() {
+    const alunoReprovado = this.adicionarStatusAprovacao().find(
+      (aluno) => aluno.aprovado == false
+    );
+
+    if (alunoReprovado) {
+      return console.log('Um ou mais alunos foram reprovados');
     }
 
-    exibirMediaTurma(){
-        // Alternativa para não usar o reduce:
-        /**
-         * let soma = 0
-         * for(nota of arrayDeNotas){
-         *    soma += nota
-         * }
-         */
-        const arrayDeNotas = this.alunos.map(aluno => aluno.notas).flat()   
+    return console.log('Todos os alunos foram aprovados');
+  }
 
-        const somaDasNotas = arrayDeNotas.reduce((acumulador, valorAtual)=> acumulador + valorAtual)
-
-        const media = (somaDasNotas / arrayDeNotas.length).toFixed(1)
-    
-        console.log(media)
-    }
-
-    adicionarStatusAprovacao() {
-        console.log(this.alunos)
-        const alunosPorAprovacao = this.alunos.map(aluno => {
-            
-            const mediaAluno = this.calcularMedia()
-
-            aluno.aprovado = mediaAluno < 7 ? false : true
-           
-            return aluno
-        })
-
-        return alunosPorAprovacao
-    }
-
-    verificaAprovacao(){
-        const alunoReprovado = this.adicionarStatusAprovacao().find(aluno => aluno.aprovado == false )
-
-        if(alunoReprovado){
-            return console.log("Um ou mais alunos foram reprovados")
-        }
-
-        return console.log("Todos os alunos foram aprovados")
-    }
-
-    inserirAluno(aluno){
-        this.alunos.push(aluno)
-    }
-
+  inserirAluno(aluno) {
+    this.alunos.push(aluno);
+  }
 }
 
+class Escola {
+  constructor(nome) {
+    this.nome = nome;
+  }
 
-const novoAluno = new Aluno("Manuelly",25,[8,6,4.5,3])
-console.log(novoAluno.calcularMedia())
+  adicionarTurma(turma) {
+    this.turma = turma;
+  }
+}
 
-const turma = new Turma(alunos)
+const escola = new Escola('Escola Reprograma');
 
-turma.inserirAluno(novoAluno)
-console.log(turma.exibirMediaTurma())
+escola.adicionarTurma(
+    new Turma([
+        new Aluno('Nome Aluno1', 19, [8, 7, 5, 3])]
+    )
+);
+console.log(escola.turma)
+const novoAluno = new Aluno('Manuelly', 25, [8, 6, 4.5, 3]);
 
+console.log(novoAluno.calcularMedia());
 
+const turma = new Turma(alunos);
+
+turma.inserirAluno(novoAluno);
+console.log(turma.exibirMediaTurma());
+console.log(turma.adicionarStatusAprovacao());
+console.log(novoAluno.exibirMediaAluno());

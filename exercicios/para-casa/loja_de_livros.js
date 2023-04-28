@@ -56,20 +56,28 @@ class Loja {
                     let editora = respostaEditora
                     this.prompt.question("Preço: \n",(respostaPreco)=>{
                         let preco = parseFloat(respostaPreco)
-                        let idDisponivel = true
+                        // Define um valor inicial para a variável, para que seja possível executar o while a primeira vez
+                        let idIndisponivel = true
+                        // cria um novo livro com um ID aleatório
                         let novoLivro = new Livro(titulo,autor,editora,preco)
-                        while(idDisponivel){
-                            idDisponivel = this.livros.find((livro)=> 
+                        
+                        while(idIndisponivel){
+                            // procura um livro na lista de livros que tenha um ID igual ao novo livro que foi criado e retorna...
+                            idIndisponivel = this.livros.find((livro)=> 
                                 livro.id == novoLivro.id
                             )
-                            if(idDisponivel){
+                            // Se ele encontrar um livro com o ID igual ao novo livro...
+                            if(idIndisponivel){
+                                // cria para o NOVO LIVRO um outro ID aleatório.
+                                // Isso se repete até que o idIndisponível seja false, ou seja: Quando o find não encontrar nenhum livro na lista com o ID igual ao do novo livro
                                 novoLivro = novoLivro.substituirID(novoLivro)
                             }else{
+                                // quando ele não encontrar, encerramos o fluxo do while
                                 break
                             }
                             
                         }
-                            
+                        // so depois da validação do ID válido que adicionamos o novo livro a lista
                         this.livros.push(novoLivro)
                         console.log('-----------------------------');
                         console.log('Livro Cadastrado com sucesso!');

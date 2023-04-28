@@ -39,6 +39,7 @@ class Loja {
     constructor(nome){
         this.nome = nome
         this.livros = []
+        // deixa disponível uma estrutura do readline para que seja possível usar dentro da classe o .question()
         this.prompt = rl.createInterface({
             input: stdin,
             output: stdout
@@ -119,14 +120,19 @@ class Loja {
 
     apagarLivro(){
         this.prompt.question("Digite o ID do livro que você deseja apagar: \n",(id)=>{
+            // verifica se o livro existe antes de apagar
             const livroExiste = this.livros.find(livro => livro.id == id)
             if(!livroExiste){
+                // se NAO existir, retorna para o usuario informando que não existe e exibe o menu de saída
                 console.log('-----------------------------');
                 console.log("Nenhum livro foi encontrado com este ID")
                 return this.lidarSaida()
             }
+            // Precisamos entender em que posição do array this.livros o livro que queremos apagar está, por isso usamos também o parametro que registra o index de cada livro
             this.livros.forEach((livro, posicao)=>{
+                // verifica se existe um livro que o ID seja igual ao ID enviado pelo usuário
                 if(livro.id == id){
+                    // Caso encontre, ele ira no array de livros (this.livros), e utiliza o método splice() para apagar o item do array
                     this.livros.splice(posicao,1)
                     console.log('-----------------------------');
                     console.log('Livro apagado com sucesso!');

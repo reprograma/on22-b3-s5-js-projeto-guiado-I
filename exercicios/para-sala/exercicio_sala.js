@@ -115,3 +115,25 @@ turma.inserirAluno(novoAluno);
 console.log(turma.exibirMediaTurma())
 turma.mudarNome("Médio 2")
 console.log(turma)
+
+
+/** Em JavaScript, existem valores que são considerados verdadeiros e valores que são considerados falsos em determinados contextos. Esses valores são conhecidos como valores booleanos ou booleanos.
+
+Os valores verdadeiros em JavaScript são:
+
+    true
+    qualquer número diferente de zero (exemplo: 1, 2.5, -3)
+    qualquer string que não esteja vazia (exemplo: "hello", "false")
+    qualquer objeto (incluindo arrays e funções)
+    os valores especiais NaN (Not a Number) e Infinity
+
+Os valores falsos em JavaScript são:
+
+    false
+    o número zero (0) e o número negativo zero (-0)
+    uma string vazia ("")
+    null
+    undefined
+    NaN (Not a Number) quando usado em um contexto booleano
+
+Esses valores booleanos são frequentemente usados ​​em operações de controle de fluxo, como declarações if e while loops, para decidir se o código dentro dessas instruções deve ser executado ou não com base no valor booleano retornado. */

@@ -23,11 +23,9 @@ class Aluno {
   calcularMedia() {
     const somaNotasAluno = this.notas.reduce(
       (acumulador, valorAtual) => acumulador + valorAtual
-    );
+);
 
-    const mediaAlunoArredondada = (somaNotasAluno / this.notas.length).toFixed(
-      1
-    );
+    const mediaAlunoArredondada = (somaNotasAluno / this.notas.length).toFixed(1);
 
     return mediaAlunoArredondada;
   }

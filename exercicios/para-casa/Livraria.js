@@ -10,7 +10,7 @@ class Livros {
     this.id = Math.floor(Math.random() * 101);
   }
 }
-
+ 
 class Loja {
   constructor(nome) {
     this.nome = nome;

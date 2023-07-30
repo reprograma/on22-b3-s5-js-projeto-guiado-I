@@ -7,8 +7,8 @@ const rl = require('readline')
     4. Apagar um livro da lista de livros
  */
 /**
- * - @OK Crie uma classe Livro com as propriedades titulo, autor, editora e preco. O id deve ser preechido com um número aleatório entre 0 e 100
-- @quaseOK Ao preencher o id, verifique se não existe um livro com aquele ID na lista. Se houver, crie outro ID aletório e repita esse processo até que o número gerado não tenha sido selecionado como ID anteriormente.
+- @OK Crie uma classe Livro com as propriedades titulo, autor, editora e preco. O id deve ser preechido com um número aleatório entre 0 e 100
+- @OK Ao preencher o id, verifique se não existe um livro com aquele ID na lista. Se houver, crie outro ID aletório e repita esse processo até que o número gerado não tenha sido selecionado como ID anteriormente.
 - @OK Crie uma classe Loja com uma propriedade livros, que deverá ser um array de objetos da classe Livro.
 - @OK Na classe Loja, crie um método cadastrarLivro que recebe como parâmetros as informações do livro e cria um objeto da classe Livro para adicioná-lo ao array livros.
 - @OK Na classe Loja, crie um método listarLivros que percorre o array livros e exibe as informações de cada livro.
